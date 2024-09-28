@@ -11,6 +11,10 @@ export default function index() {
         style={{
           flexDirection: "row",
           width: Dimensions.get("screen").width - 30,
+          position: "absolute",
+          zIndex: 50,
+          top: 30,
+          left: 20,
         }}
       >
         <View
@@ -55,7 +59,7 @@ export default function index() {
           borderTopRightRadius: 30,
           borderTopLeftRadius: 40,
           backgroundColor: "black",
-          top: -120,
+          top: -60,
           height: Dimensions.get("screen").height - 500,
           paddingTop: 30,
         }}
