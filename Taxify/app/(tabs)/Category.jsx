@@ -16,17 +16,8 @@ export default function Category() {
       >
         <View
           style={{
-            paddingHorizontal: 10,
-          }}
-        >
-          <Link href="/Booking">
-            <Ionicons name="chevron-back" size={24} color="black" />
-          </Link>
-        </View>
-        <View
-          style={{
             alignItems: "center",
-            width: Dimensions.get("screen").width - 110,
+            width: Dimensions.get("screen").width,
           }}
         >
           <Text

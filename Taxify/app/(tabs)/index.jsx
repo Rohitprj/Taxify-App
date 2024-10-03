@@ -14,18 +14,21 @@ import parking from "../../assets/images/parking.png";
 import boy from "../../assets/images/boy.png";
 
 export default function index() {
-  //   const [pageSelect, setPageSelect] = useState(false);
   return (
     <View>
       <View
         style={{
+          width: Dimensions.get("screen").width - 30,
           flexDirection: "row",
           marginTop: 40,
+          alignSelf: "center",
         }}
       >
         <View
           style={{
-            paddingHorizontal: 10,
+            padding: 10,
+            borderRadius: 30,
+            backgroundColor: "lightgrey",
           }}
         >
           <Link href="/Booking">
@@ -36,6 +39,7 @@ export default function index() {
           style={{
             alignItems: "center",
             width: Dimensions.get("screen").width - 110,
+            right: 7,
           }}
         >
           <Text
@@ -51,10 +55,13 @@ export default function index() {
           style={{
             padding: 10,
             borderRadius: 30,
-            backgroundColor: "#f2f2f2",
+            backgroundColor: "lightgrey",
+            right: 7,
           }}
         >
-          <Ionicons name="notifications-outline" size={24} color="black" />
+          <Link href={"/notification"}>
+            <Ionicons name="notifications-outline" size={24} color="black" />
+          </Link>
         </View>
       </View>
       <ScrollView>
