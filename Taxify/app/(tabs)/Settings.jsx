@@ -339,7 +339,11 @@ export default function newLoc() {
                     />
                   </View>
                   <View
-                    style={{ height: 1, width: 260, backgroundColor: "#d52a35" }}
+                    style={{
+                      height: 1,
+                      width: 260,
+                      backgroundColor: "#d52a35",
+                    }}
                   />
                   <View
                     style={{
