@@ -12,12 +12,14 @@ export default function Category() {
         style={{
           flexDirection: "row",
           marginTop: 40,
+          width: Dimensions.get("screen").width,
+          justifyContent: "space-between",
+          paddingHorizontal: 13,
         }}
       >
         <View
           style={{
-            alignItems: "center",
-            width: Dimensions.get("screen").width,
+            justifyContent: "center",
           }}
         >
           <Text
@@ -28,6 +30,17 @@ export default function Category() {
           >
             Categories
           </Text>
+        </View>
+        <View
+          style={{
+            padding: 10,
+            borderRadius: 30,
+            backgroundColor: "lightgrey",
+          }}
+        >
+          <Link href={"/notification"}>
+            <Ionicons name="notifications-outline" size={24} color="black" />
+          </Link>
         </View>
       </View>
 

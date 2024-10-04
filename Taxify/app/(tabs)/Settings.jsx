@@ -1,5 +1,14 @@
-import { View, Text, Dimensions, ScrollView } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  Pressable,
+  Alert,
+  Modal,
+  StyleSheet,
+} from "react-native";
+import React, { useState } from "react";
 import { Link } from "expo-router";
 import {
   AntDesign,
@@ -11,10 +20,11 @@ import {
   MaterialIcons,
   SimpleLineIcons,
 } from "@expo/vector-icons";
-import { TextInput } from "react-native";
+// import { TextInput } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function newLoc() {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <SafeAreaProvider>
       <View
@@ -345,32 +355,72 @@ export default function newLoc() {
                       backgroundColor: "#d52a35",
                     }}
                   />
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                    }}
+                  <Modal
+                    animationType="none"
+                    transparent={true}
+                    visible={modalVisible}
                   >
+                    <View style={styles.centeredView}>
+                      <View style={styles.modalView}>
+                        <MaterialCommunityIcons
+                          name="logout"
+                          size={50}
+                          color="black"
+                        />
+                        <Text style={styles.modalText}>Come Back Soon</Text>
+                        <Text
+                          style={{ ...styles.modalText, fontWeight: "400" }}
+                        >
+                          Are you sure You want to Logout?
+                        </Text>
+                        <View style={{ flexDirection: "row", gap: 10 }}>
+                          <Pressable
+                            style={[styles.button, styles.buttonClose]}
+                            onPress={() => setModalVisible(!modalVisible)}
+                          >
+                            <Text style={styles.textStyle}>
+                              Stay, Logged in
+                            </Text>
+                          </Pressable>
+                          <Link
+                          href={"/MobNo"}
+                            style={[styles.button, styles.buttonClose]}
+                            onPress={() => setModalVisible(!modalVisible)}
+                          >
+                            <Text style={styles.textStyle}>Yes, Logout</Text>
+                          </Link>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
+                  <Pressable onPress={() => setModalVisible(true)}>
                     <View
                       style={{
                         flexDirection: "row",
-                        alignItems: "center",
-                        gap: 10,
+                        justifyContent: "space-between",
                       }}
                     >
-                      <SimpleLineIcons
-                        name="logout"
-                        size={23}
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <SimpleLineIcons
+                          name="logout"
+                          size={23}
+                          color="#d52a35"
+                        />
+                        <Text style={{ color: "#d52a35" }}>Logout</Text>
+                      </View>
+                      <MaterialIcons
+                        name="keyboard-arrow-right"
+                        size={24}
                         color="#d52a35"
                       />
-                      <Text style={{ color: "#d52a35" }}>Logout</Text>
                     </View>
-                    <MaterialIcons
-                      name="keyboard-arrow-right"
-                      size={24}
-                      color="#d52a35"
-                    />
-                  </View>
+                  </Pressable>
                 </View>
               </View>
             </View>
@@ -380,3 +430,48 @@ export default function newLoc() {
     </SafeAreaProvider>
   );
 }
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    // marginTop: 22,
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    width: Dimensions.get("screen").width - 30,
+    height: 200,
+    padding: 10,
+  },
+  button: {
+    borderRadius: 5,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#000000",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 5,
+    textAlign: "center",
+    fontWeight: "700",
+  },
+});

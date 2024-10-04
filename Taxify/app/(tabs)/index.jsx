@@ -48,7 +48,7 @@ export default function index() {
               fontWeight: "900",
             }}
           >
-            Taksi
+            Taxify
           </Text>
         </View>
         <View

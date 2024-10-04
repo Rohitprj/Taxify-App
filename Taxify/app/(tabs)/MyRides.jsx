@@ -8,6 +8,7 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import boy from "../../assets/images/boy.png";
+import { Link } from "expo-router";
 
 export default function MyRides() {
   return (
@@ -18,6 +19,9 @@ export default function MyRides() {
           width: Dimensions.get("screen").width,
           marginTop: 40,
           marginBottom: 20,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingHorizontal: 13,
         }}
       >
         <Text
@@ -28,6 +32,17 @@ export default function MyRides() {
         >
           My Ride
         </Text>
+        <View
+          style={{
+            padding: 10,
+            borderRadius: 30,
+            backgroundColor: "lightgrey",
+          }}
+        >
+          <Link href={"/notification"}>
+            <Ionicons name="notifications-outline" size={24} color="black" />
+          </Link>
+        </View>
       </View>
       <ScrollView horizontal>
         <View
