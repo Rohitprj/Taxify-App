@@ -7,7 +7,7 @@ import Booking from "./Booking";
 export default function index() {
   return (
     <View>
-      <Tabs />
+      <Index />
     </View>
   );
 }
