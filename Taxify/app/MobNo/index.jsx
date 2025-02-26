@@ -35,22 +35,24 @@ export default function MobileNo() {
         <View style={{ flexDirection: "row", gap: 10 }}>
           <TextInput
             placeholder="+1-121"
+            keyboardType="Numeric"
             style={{
               height: 40,
               width: 60,
               backgroundColor: "white",
               borderRadius: 10,
             }}
-          ></TextInput>
+          />
           <TextInput
             placeholder="Enter your number"
+            keyboardType="Numeric"
             style={{
               height: 40,
               width: 260,
               backgroundColor: "white",
               borderRadius: 10,
             }}
-          ></TextInput>
+          />
         </View>
         <Link
           href="/MobNo/otpVerify"
