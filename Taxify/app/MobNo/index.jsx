@@ -83,7 +83,9 @@ export default function MobileNo() {
         </Link>
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
           <Text style={{ color: "#b3b3b3" }}>New User ?</Text>
-          <Text style={{ fontWeight: "500" }}> Sign up</Text>
+          <Link href={"../SignUp"}>
+            <Text style={{ fontWeight: "500" }}> Sign up</Text>
+          </Link>
         </View>
         <View
           style={{
