@@ -1,6 +1,14 @@
-import { View, Text, Dimensions, TextInput, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  TextInput,
+  ScrollView,
+  Pressable,
+  StyleSheet,
+} from "react-native";
 import React, { useState } from "react";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import {
   AntDesign,
   FontAwesome,
@@ -14,6 +22,7 @@ import parking from "../../assets/images/parking.png";
 import boy from "../../assets/images/boy.png";
 
 export default function index() {
+  const router = useRouter();
   return (
     <View>
       <View
@@ -31,9 +40,9 @@ export default function index() {
             backgroundColor: "lightgrey",
           }}
         >
-          <Link href="/Booking">
+          <Pressable onPress={() => router.back()}>
             <Ionicons name="chevron-back" size={24} color="black" />
-          </Link>
+          </Pressable>
         </View>
         <View
           style={{
@@ -65,27 +74,11 @@ export default function index() {
         </View>
       </View>
       <ScrollView>
-        <View style={{ alignItems: "center" }}>
-          <View
-            style={{
-              width: Dimensions.get("screen").width - 60,
-              borderRadius: 30,
-              padding: 15,
-              marginTop: 16,
-              backgroundColor: "lightgrey",
-              flexDirection: "row",
-              gap: 18,
-              alignItems: "center",
-            }}
-          >
+        <View style={styles.searchContainer}>
+          <View style={styles.searchBox}>
             <FontAwesome name="search" size={24} color="white" />
             <TextInput
-              style={{
-                fontSize: 18,
-                height: 30,
-                width: 270,
-                fontWeight: "600",
-              }}
+              style={styles.searchInput}
               placeholderTextColor="white"
               placeholder="Search destination"
             />
@@ -557,3 +550,26 @@ export default function index() {
     </View>
   );
 }
+const styles = StyleSheet.create({
+  searchContainer: {
+    alignItems: "center",
+    width: "100%",
+  },
+  searchBox: {
+    width: "90%",
+    borderRadius: 30,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginTop: 16,
+    backgroundColor: "lightgrey",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: "400",
+    paddingVertical: 5,
+    color: "white",
+  },
+});

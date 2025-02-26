@@ -1,9 +1,11 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, Pressable } from "react-native";
 import React from "react";
 import { Fontisto, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 
 export default function Notification() {
+  const router = useRouter();
+
   return (
     <View>
       <View
@@ -21,9 +23,9 @@ export default function Notification() {
             backgroundColor: "lightgrey",
           }}
         >
-          <Link href="/(tabs)">
+          <Pressable onPress={() => router.back()}>
             <Ionicons name="chevron-back" size={24} color="black" />
-          </Link>
+          </Pressable>
         </View>
         <View
           style={{
