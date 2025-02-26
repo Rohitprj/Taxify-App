@@ -1,6 +1,6 @@
 import { View, Text, Dimensions, Pressable, ScrollView } from "react-native";
 import React, { useMemo, useState } from "react";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { TextInput } from "react-native";
 import { RadioGroup } from "react-native-radio-buttons-group";
@@ -28,6 +28,7 @@ export default function newLoc() {
     []
   );
   const [selected, isSelected] = useState();
+  const router = useRouter();
   return (
     <SafeAreaProvider>
       <ScrollView>
@@ -42,9 +43,9 @@ export default function newLoc() {
               paddingHorizontal: 10,
             }}
           >
-            <Link href="/Booking">
+            <Pressable onPress={() => router.back()}>
               <Ionicons name="chevron-back" size={24} color="black" />
-            </Link>
+            </Pressable>
           </View>
           <View
             style={{

@@ -1,131 +1,41 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, Pressable, StyleSheet } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import MapView from "react-native-maps";
 
 export default function index() {
+  const router = useRouter();
   return (
     <View>
-      <View
-        style={{
-          flexDirection: "row",
-          width: Dimensions.get("screen").width - 30,
-          position: "absolute",
-          zIndex: 50,
-          top: 30,
-          left: 20,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "white",
-            borderRadius: 50,
-            width: 42,
-            padding: 8,
-            alignSelf: "center",
-          }}
-        >
-          <Link href="/MobNo/otpVerify">
+      <View style={styles.headerContainer}>
+        <View style={styles.backButtonContainer}>
+          <Pressable onPress={() => router.back()}>
             <Ionicons name="chevron-back" size={24} color="black" />
-          </Link>
+          </Pressable>
         </View>
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            width: Dimensions.get("screen").width - 110,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "900",
-              alignContent: "center",
-            }}
-          >
-            Taxify
-          </Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Taxify</Text>
         </View>
       </View>
-      <MapView
-        style={{
-          width: Dimensions.get("screen").width,
-          height: 520,
-        }}
-      ></MapView>
-      <View
-        style={{
-          borderTopRightRadius: 30,
-          borderTopLeftRadius: 40,
-          backgroundColor: "black",
-          top: -60,
-          height: Dimensions.get("screen").height - 500,
-          paddingTop: 30,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            paddingHorizontal: 30,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 14,
-              color: "white",
-            }}
-          >
+      <MapView style={styles.map} />
+      <View style={styles.bottomContainer}>
+        <View style={styles.serviceLocationContainer}>
+          <Text style={styles.serviceLocationText}>
             Select Service Location
           </Text>
           <Link href="/Booking/newLoc">
-            <Text
-              style={{
-                color: "#ffcc00",
-                textDecorationLine: "underline",
-              }}
-            >
-              Change
-            </Text>
+            <Text style={styles.changeText}>Change</Text>
           </Link>
         </View>
-        <View
-          style={{
-            borderTopRightRadius: 30,
-            borderTopLeftRadius: 40,
-            backgroundColor: "white",
-            top: 20,
-            height: Dimensions.get("screen").height - 160,
-            width: Dimensions.get("screen").width,
-            alignItems: "center",
-            paddingTop: 30,
-            gap: 20,
-          }}
-        >
-          <View
-            style={{
-              width: Dimensions.get("screen").width - 55,
-              height: 140,
-              backgroundColor: "#f2f2f2",
-              borderRadius: 10,
-              padding: 20,
-            }}
-          >
-            <View style={{ flexDirection: "row", gap: 10 }}>
-              <View
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: 50,
-                  width: 30,
-                  height: 30,
-                  padding: 5,
-                }}
-              >
+        <View style={styles.detailsContainer}>
+          <View style={styles.locationBox}>
+            <View style={styles.locationRow}>
+              <View style={styles.locationIconContainer}>
                 <Ionicons name="location-sharp" size={20} color="black" />
               </View>
-              <View style={{ gap: 5 }}>
-                <Text style={{ fontWeight: "900" }}>Saket Road</Text>
+              <View style={styles.locationTextContainer}>
+                <Text style={styles.locationTitle}>Saket Road</Text>
                 <Text>
                   195, Lower Ground, Lane-1,{"\n"}Western Marg, Saidulajab,
                   {"\n"}
@@ -134,29 +44,9 @@ export default function index() {
               </View>
             </View>
           </View>
-
           <Link href="/(tabs)">
-            <View
-              style={{
-                width: Dimensions.get("screen").width - 55,
-                height: 50,
-                backgroundColor: "#1b1c1c",
-                borderRadius: 10,
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: 6,
-              }}
-            >
-              <Text
-                style={{
-                  fontWeight: "500",
-                  fontSize: 16,
-                  color: "white",
-                  textAlign: "center",
-                }}
-              >
-                Confirm Loaction
-              </Text>
+            <View style={styles.confirmButton}>
+              <Text style={styles.confirmButtonText}>Confirm Location</Text>
             </View>
           </Link>
         </View>
@@ -164,3 +54,106 @@ export default function index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: "row",
+    width: Dimensions.get("screen").width - 30,
+    position: "absolute",
+    zIndex: 50,
+    top: 30,
+    left: 20,
+  },
+  backButtonContainer: {
+    backgroundColor: "white",
+    borderRadius: 50,
+    width: 42,
+    padding: 8,
+    alignSelf: "center",
+  },
+  titleContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: Dimensions.get("screen").width - 110,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "900",
+    alignContent: "center",
+  },
+  map: {
+    width: Dimensions.get("screen").width,
+    height: 520,
+  },
+  bottomContainer: {
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 40,
+    backgroundColor: "black",
+    top: -70,
+    height: Dimensions.get("screen").height - 500,
+    paddingTop: 30,
+  },
+  serviceLocationContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 30,
+    justifyContent: "space-between",
+  },
+  serviceLocationText: {
+    fontSize: 14,
+    color: "white",
+  },
+  changeText: {
+    color: "#ffcc00",
+    textDecorationLine: "underline",
+  },
+  detailsContainer: {
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 40,
+    backgroundColor: "white",
+    top: 10,
+    height: Dimensions.get("screen").height - 160,
+    width: Dimensions.get("screen").width,
+    alignItems: "center",
+    paddingTop: 30,
+    gap: 20,
+  },
+  locationBox: {
+    width: Dimensions.get("screen").width - 55,
+    height: 140,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 10,
+    padding: 20,
+  },
+  locationRow: {
+    flexDirection: "row",
+    gap: 10,
+  },
+  locationIconContainer: {
+    backgroundColor: "white",
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    padding: 5,
+  },
+  locationTextContainer: {
+    gap: 5,
+  },
+  locationTitle: {
+    fontWeight: "900",
+  },
+  confirmButton: {
+    width: Dimensions.get("screen").width - 55,
+    height: 50,
+    backgroundColor: "#1b1c1c",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 6,
+  },
+  confirmButtonText: {
+    fontWeight: "500",
+    fontSize: 16,
+    color: "white",
+    textAlign: "center",
+  },
+});
