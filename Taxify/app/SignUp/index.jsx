@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 const index = () => {
@@ -9,7 +9,7 @@ const index = () => {
   return (
     <View style={styles.container}>
       <Pressable onPress={() => router.back()} style={styles.backButton}>
-        <AntDesign name="arrowleft" size={24} color="black" />
+        <Ionicons name="chevron-back" size={24} color="black" />
       </Pressable>
 
       <Text style={styles.logo}>🚖 Taxify</Text>
@@ -60,12 +60,16 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginTop: 20,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 50,
+    width: 42,
+    padding: 8,
   },
   logo: {
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
-    marginVertical: 10,
+    // marginVertical: 10,
   },
   heading: {
     fontSize: 20,
@@ -90,7 +94,6 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 10,
     marginBottom: 15,
-    borderWidth: 1,
     borderColor: "#ddd",
   },
   signupButton: {

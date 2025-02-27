@@ -131,7 +131,6 @@ const styles = {
   // Bottom Section
   bottomContainer: {
     alignItems: "center",
-    paddingVertical: 20,
     backgroundColor: "#f2f2f2",
   },
   signUpContainer: {

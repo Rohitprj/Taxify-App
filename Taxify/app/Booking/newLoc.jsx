@@ -32,9 +32,22 @@ export default function newLoc() {
         <ScrollView contentContainerStyle={styles.scrollView}>
           {/* Header */}
           <View style={styles.header}>
-            <Pressable onPress={() => router.back()} style={styles.backButton}>
-              <Ionicons name="chevron-back" size={24} color="black" />
-            </Pressable>
+            <View
+              style={{
+                backgroundColor: "#f2f2f2",
+                borderRadius: 50,
+                width: 42,
+                padding: 8,
+                alignSelf: "center",
+              }}
+            >
+              <Pressable
+                onPress={() => router.back()}
+                style={styles.backButton}
+              >
+                <Ionicons name="chevron-back" size={24} color="black" />
+              </Pressable>
+            </View>
             <Text style={styles.headerTitle}>Add New Location</Text>
           </View>
 

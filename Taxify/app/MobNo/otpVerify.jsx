@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
     padding: 15,
-    marginTop: 30,
   },
   header: {
     flexDirection: "row",
@@ -119,6 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 20,
     paddingVertical: 10,
+    width: "100%",
   },
   otpBox: {
     height: 50,
