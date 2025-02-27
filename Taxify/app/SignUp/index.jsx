@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
-import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 const index = () => {
@@ -43,10 +43,12 @@ const index = () => {
         <Pressable style={styles.signupButton}>
           <Text style={styles.signupText}>Sign Up</Text>
         </Pressable>
-
-        <Text style={styles.loginText}>
-          Already have an account? <Text style={styles.signIn}>Sign in</Text>
-        </Text>
+        <View style={styles.bottomText}>
+          <Text style={styles.loginText}>Already have an account? </Text>
+          <Pressable onPress={() => router.back()}>
+            <Text style={styles.signIn}>Sign in</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -59,7 +61,6 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   backButton: {
-    marginTop: 20,
     backgroundColor: "#f2f2f2",
     borderRadius: 50,
     width: 42,
@@ -69,7 +70,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
-    // marginVertical: 10,
   },
   heading: {
     fontSize: 20,
@@ -109,12 +109,17 @@ const styles = StyleSheet.create({
   },
   loginText: {
     textAlign: "center",
-    marginTop: 15,
     color: "gray",
   },
   signIn: {
     color: "black",
     fontWeight: "bold",
+  },
+  bottomText: {
+    flexDirection: "row",
+    alignSelf: "center",
+    alignItems: "center",
+    marginTop: 15,
   },
 });
 
