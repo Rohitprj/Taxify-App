@@ -14,9 +14,6 @@ export default function index() {
             <Ionicons name="chevron-back" size={24} color="black" />
           </Pressable>
         </View>
-        {/* <View style={styles.titleContainer}>
-          <Text style={styles.title}>Taxify</Text>
-        </View> */}
       </View>
       <MapView style={styles.map} />
       <View style={styles.bottomContainer}>
@@ -28,6 +25,8 @@ export default function index() {
             <Text style={styles.changeText}>Change</Text>
           </Link>
         </View>
+
+        {/* Bottom section */}
         <View style={styles.detailsContainer}>
           <View style={styles.locationBox}>
             <View style={styles.locationRow}>
@@ -118,11 +117,11 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   locationBox: {
-    width: Dimensions.get("screen").width - 55,
-    height: 140,
+    width: "90%",
     backgroundColor: "#f2f2f2",
     borderRadius: 10,
     padding: 20,
+    backgroundColor: "pink",
   },
   locationRow: {
     flexDirection: "row",

@@ -116,9 +116,8 @@ const styles = StyleSheet.create({
   },
   otpBoxes: {
     flexDirection: "row",
-    gap: 20,
     paddingVertical: 10,
-    width: "100%",
+    justifyContent: "space-around",
   },
   otpBox: {
     height: 50,
