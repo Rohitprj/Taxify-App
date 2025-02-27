@@ -35,7 +35,7 @@ export default function index() {
               </View>
               <View style={styles.locationTextContainer}>
                 <Text style={styles.locationTitle}>Saket Road</Text>
-                <Text>
+                <Text style={{ height: 75 }}>
                   195, Lower Ground, Lane-1,{"\n"}Western Marg, Saidulajab,
                   {"\n"}
                   Near Saket Metro Gate No-2,{"\n"}Delhi, India 110030
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f2f2f2",
     borderRadius: 10,
     padding: 20,
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
   },
   locationRow: {
     flexDirection: "row",
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   },
   locationTextContainer: {
     gap: 5,
+    // height: 200,
   },
   locationTitle: {
     fontWeight: "900",

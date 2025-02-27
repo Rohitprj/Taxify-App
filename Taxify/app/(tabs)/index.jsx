@@ -29,7 +29,7 @@ export default function index() {
         style={{
           width: Dimensions.get("screen").width - 30,
           flexDirection: "row",
-          marginTop: 40,
+          marginVertical: 10,
           alignSelf: "center",
         }}
       >
