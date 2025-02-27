@@ -1,274 +1,130 @@
-import { View, Text, Dimensions, Pressable, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  Pressable,
+  ScrollView,
+  TextInput,
+  StyleSheet,
+} from "react-native";
 import React, { useMemo, useState } from "react";
 import { Link, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { TextInput } from "react-native";
 import { RadioGroup } from "react-native-radio-buttons-group";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function newLoc() {
   const radioBtn = useMemo(
     () => [
-      {
-        id: "1",
-        label: "Home",
-        value: "option1",
-      },
-      {
-        id: "2",
-        label: "Work",
-        value: "option2",
-      },
-      {
-        id: "3",
-        label: "Other",
-        value: "option3",
-      },
+      { id: "1", label: "Home", value: "option1" },
+      { id: "2", label: "Work", value: "option2" },
+      { id: "3", label: "Other", value: "option3" },
     ],
     []
   );
+
   const [selected, isSelected] = useState();
   const router = useRouter();
+
   return (
     <SafeAreaProvider>
-      <ScrollView>
-        <View
-          style={{
-            flexDirection: "row",
-            marginTop: 40,
-          }}
-        >
-          <View
-            style={{
-              paddingHorizontal: 10,
-            }}
-          >
-            <Pressable onPress={() => router.back()}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          {/* Header */}
+          <View style={styles.header}>
+            <Pressable onPress={() => router.back()} style={styles.backButton}>
               <Ionicons name="chevron-back" size={24} color="black" />
             </Pressable>
+            <Text style={styles.headerTitle}>Add New Location</Text>
           </View>
-          <View
-            style={{
-              alignItems: "center",
-              width: Dimensions.get("screen").width - 110,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "900",
-              }}
-            >
-              Add New Location
-            </Text>
+
+          {/* Radio Buttons */}
+          <View style={styles.radioContainer}>
+            <Text style={styles.label}>Select Category</Text>
+            <RadioGroup
+              radioButtons={radioBtn}
+              onPress={isSelected}
+              selectedId={selected}
+              layout="row"
+            />
           </View>
-        </View>
-        <View
-          style={{
-            paddingHorizontal: 30,
-            paddingVertical: 40,
-          }}
-        >
-          <Text
-            style={{
-              fontWeight: "600",
-              paddingVertical: 10,
-              fontSize: 16,
-            }}
-          >
-            Select Category
-          </Text>
-          <RadioGroup
-            radioButtons={radioBtn}
-            onPress={isSelected}
-            selectedId={selected}
-            layout="row"
-          />
-        </View>
-        <View
-          style={{
-            backgroundColor: "#f2f2f2",
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
-          }}
-        >
-          <View style={{ paddingHorizontal: 30, paddingVertical: 40, gap: 20 }}>
-            <View>
-              <Text style={{ fontSize: 16, fontWeight: "600", color: "grey" }}>
-                Street
-              </Text>
-              <View
-                style={{
-                  width: Dimensions.get("screen").width - 60,
-                  borderRadius: 10,
-                  padding: 10,
-                  marginTop: 10,
-                  backgroundColor: "white",
-                  flexDirection: "row",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <TextInput
-                  style={{
-                    fontSize: 16,
-                    borderWidth: 1,
-                    borderColor: "white",
-                    height: 30,
-                    width: 270,
-                    fontWeight: "600",
-                  }}
-                  placeholderTextColor="grey"
-                  placeholder="Enter street"
-                />
-              </View>
-            </View>
-            <View>
-              <Text style={{ fontSize: 16, fontWeight: "600", color: "grey" }}>
-                City
-              </Text>
-              <View
-                style={{
-                  width: Dimensions.get("screen").width - 60,
-                  borderRadius: 10,
-                  padding: 10,
-                  marginTop: 10,
-                  backgroundColor: "white",
-                  flexDirection: "row",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <TextInput
-                  style={{
-                    fontSize: 16,
-                    borderWidth: 1,
-                    borderColor: "white",
-                    height: 30,
-                    width: 270,
-                    fontWeight: "600",
-                  }}
-                  placeholderTextColor="grey"
-                  placeholder="Enter city"
-                />
-              </View>
-            </View>
-            <View>
-              <Text style={{ fontSize: 16, fontWeight: "600", color: "grey" }}>
-                State
-              </Text>
-              <View
-                style={{
-                  width: Dimensions.get("screen").width - 60,
-                  borderRadius: 10,
-                  padding: 10,
-                  marginTop: 10,
-                  backgroundColor: "white",
-                  flexDirection: "row",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <TextInput
-                  style={{
-                    fontSize: 16,
-                    borderWidth: 1,
-                    borderColor: "white",
-                    height: 30,
-                    width: 270,
-                    fontWeight: "600",
-                  }}
-                  placeholderTextColor="grey"
-                  placeholder="Enter state"
-                />
-              </View>
-            </View>
 
-            <View>
-              <Text style={{ fontSize: 16, fontWeight: "600", color: "grey" }}>
-                Country
-              </Text>
-              <View
-                style={{
-                  width: Dimensions.get("screen").width - 60,
-                  borderRadius: 10,
-                  padding: 10,
-                  marginTop: 10,
-                  backgroundColor: "white",
-                  flexDirection: "row",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <TextInput
-                  style={{
-                    fontSize: 16,
-                    borderWidth: 1,
-                    borderColor: "white",
-                    height: 30,
-                    width: 270,
-                    fontWeight: "600",
-                  }}
-                  placeholderTextColor="grey"
-                  placeholder="Enter country"
-                />
-              </View>
-            </View>
+          {/* Input Fields */}
+          <View style={styles.formContainer}>
+            {["Street", "City", "State", "Country", "Zip"].map(
+              (placeholder, index) => (
+                <View key={index} style={styles.inputWrapper}>
+                  <Text style={styles.inputLabel}>{placeholder}</Text>
+                  <View style={styles.inputBox}>
+                    <TextInput
+                      style={styles.input}
+                      placeholder={`Enter ${placeholder.toLowerCase()}`}
+                      placeholderTextColor="grey"
+                    />
+                  </View>
+                </View>
+              )
+            )}
 
-            <View>
-              <Text style={{ fontSize: 16, fontWeight: "600", color: "grey" }}>
-                Zip
-              </Text>
-              <View
-                style={{
-                  width: Dimensions.get("screen").width - 60,
-                  borderRadius: 10,
-                  padding: 10,
-                  marginTop: 10,
-                  backgroundColor: "white",
-                  flexDirection: "row",
-                  gap: 5,
-                  alignItems: "center",
-                }}
-              >
-                <TextInput
-                  style={{
-                    fontSize: 16,
-                    borderWidth: 1,
-                    borderColor: "white",
-                    height: 30,
-                    width: 270,
-                    fontWeight: "600",
-                  }}
-                  placeholderTextColor="grey"
-                  placeholder="Enter zip"
-                />
+            {/* Submit Button */}
+            <Pressable onPress={() => router.back()}>
+              <View style={styles.submitButton}>
+                <Text style={styles.submitText}>Add Location</Text>
               </View>
-            </View>
-
-            <Link href="/Booking">
-              <View
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "black",
-                  width: Dimensions.get("screen").width - 50,
-                  paddingVertical: 20,
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#ffff",
-                    alignSelf: "center",
-                    fontSize: 20,
-                  }}
-                >
-                  Add Location
-                </Text>
-              </View>
-            </Link>
+            </Pressable>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "white" },
+  scrollView: { paddingBottom: 40 },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+    paddingHorizontal: 20,
+    gap: 10,
+  },
+  backButton: { padding: 0 },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "900",
+    textAlign: "center",
+  },
+
+  radioContainer: { paddingHorizontal: 30, paddingVertical: 20 },
+  label: { fontWeight: "600", fontSize: 16, paddingBottom: 10 },
+
+  formContainer: {
+    backgroundColor: "#f2f2f2",
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    paddingHorizontal: 30,
+    paddingVertical: 40,
+    height: "100%",
+  },
+  inputWrapper: { marginBottom: 20 },
+  inputLabel: { fontSize: 16, fontWeight: "600", color: "grey" },
+  inputBox: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginTop: 5,
+    height: 50,
+    justifyContent: "center",
+  },
+  input: { fontSize: 16, color: "black", flex: 1 },
+
+  submitButton: {
+    borderRadius: 10,
+    backgroundColor: "black",
+    paddingVertical: 15,
+    alignItems: "center",
+    width: "100%",
+  },
+  submitText: { color: "white", fontSize: 18, fontWeight: "600" },
+});

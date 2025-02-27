@@ -14,9 +14,9 @@ export default function index() {
             <Ionicons name="chevron-back" size={24} color="black" />
           </Pressable>
         </View>
-        <View style={styles.titleContainer}>
+        {/* <View style={styles.titleContainer}>
           <Text style={styles.title}>Taxify</Text>
-        </View>
+        </View> */}
       </View>
       <MapView style={styles.map} />
       <View style={styles.bottomContainer}>
