@@ -4,9 +4,10 @@
     "slug": "Taxify",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/boy.png",
+    "icon": "./assets/images/steering-wheel.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
     "splash": {
       "image": "./assets/images/Wheel.png",
       "resizeMode": "contain",
