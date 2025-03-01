@@ -10,10 +10,6 @@ export default function TabLayout() {
         tabBarActiveTintColor: "black",
         tabBarStyle: {
           height: 70,
-          // borderTopRightRadius: 40,
-          // borderTopLeftRadius: 40,
-          // borderBottomLeftRadius: 40,
-          // borderBottomRightRadius: 40,
           borderRadius: 40,
           position: "relative",
           bottom: 5,

@@ -49,7 +49,6 @@ export default function MyRides() {
           style={{
             padding: 20,
             backgroundColor: "white",
-            // height: Dimensions.get("screen").height,
             gap: 16,
             flexDirection: "row",
           }}
