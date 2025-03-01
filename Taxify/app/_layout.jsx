@@ -4,13 +4,7 @@ export default function Layout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="MobNo/index" options={{ headerShown: false }} />
-      <Stack.Screen name="MobNo/otpVerify" options={{ headerShown: false }} />
-      <Stack.Screen name="Booking/index" options={{ headerShown: false }} />
-      <Stack.Screen name="Booking/newLoc" options={{ headerShown: false }} />
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="notification" options={{ headerShown: false }} />
-      <Stack.Screen name="SignUp/index" options={{ headerShown: false }} /> */}
+      <Stack.Screen name="notification" options={{ headerShown: false }} /> */}
     </Stack>
   );
 }
