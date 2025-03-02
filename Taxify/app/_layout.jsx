@@ -1,10 +1,14 @@
 import { Stack } from "expo-router/stack";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
 export default function Layout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <Provider store={store}>
+      <Stack screenOptions={{ headerShown: false }}>
+        {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="notification" options={{ headerShown: false }} /> */}
-    </Stack>
+      </Stack>
+    </Provider>
   );
 }

@@ -1,10 +1,11 @@
-import { View, Text, Dimensions, TextInput } from "react-native";
+import { View, Text, Dimensions, TextInput, Switch } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "react-native";
 import Google from "../../assets/images/GoogleIcon.png";
 import { Link } from "expo-router";
 import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
+import HomeScreen from "../homeScreen";
 
 export default function MobileNo() {
   return (
@@ -13,6 +14,8 @@ export default function MobileNo() {
         <Text style={styles.title}>Taxify</Text>
         <View style={styles.welcomeTextContainer}>
           <Text style={styles.welcomeText}>Lets you in</Text>
+          {/* <Switch value={true} onChange={() => {}} /> */}
+          <HomeScreen />
           <Text style={styles.subtitle}>Hey, You have been missed!</Text>
         </View>
 
