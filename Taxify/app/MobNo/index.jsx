@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "react-native";
 import Google from "../../assets/images/GoogleIcon.png";
 import { Link } from "expo-router";
+import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 
 export default function MobileNo() {
   return (
@@ -30,9 +31,13 @@ export default function MobileNo() {
         </View>
 
         <Link href="/MobNo/otpVerify" style={styles.linkContainer}>
-          <View style={styles.button}>
+          <Animated.View
+            entering={BounceIn}
+            exiting={BounceOut}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>Get OTP</Text>
-          </View>
+          </Animated.View>
         </Link>
       </View>
 
