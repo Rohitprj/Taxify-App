@@ -1,4 +1,11 @@
-import { View, Text, Dimensions, TextInput, Switch } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  TextInput,
+  Switch,
+  StyleSheet,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "react-native";
@@ -11,6 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 export default function MobileNo() {
   const theme = useSelector((state) => state.theme.theme);
   const dispatch = useDispatch();
+  const styles = getStyles(theme);
+
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.topContainer}>
@@ -74,121 +83,127 @@ export default function MobileNo() {
   );
 }
 
-const styles = {
-  safeContainer: {
-    flex: 1,
-    backgroundColor: "#f2f2f2",
-  },
-  topContainer: {
-    width: Dimensions.get("screen").width,
-    backgroundColor: "#f2f2f2",
-    borderBottomRightRadius: 30,
-    borderBottomLeftRadius: 30,
-    padding: 15,
-  },
-  title: {
-    alignSelf: "center",
-    fontSize: 20,
-    fontWeight: "900",
-  },
-  welcomeTextContainer: {
-    paddingVertical: 10,
-  },
-  welcomeText: {
-    fontSize: 18,
-    fontWeight: "500",
-  },
-  subtitle: {
-    color: "#555",
-  },
-  label: {
-    fontWeight: "500",
-    paddingVertical: 10,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    gap: 10,
-  },
-  smallInput: {
-    height: 40,
-    width: "20%",
-    backgroundColor: "white",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-  },
-  largeInput: {
-    height: 40,
-    width: "76%",
-    backgroundColor: "white",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-  },
-  linkContainer: {
-    marginTop: 30,
-    marginVertical: 10,
-  },
-  button: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#1b1c1c",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonText: {
-    fontWeight: "700",
-    fontSize: 16,
-    color: "white",
-    textAlign: "center",
-  },
+const getStyles = (theme) =>
+  StyleSheet.create({
+    safeContainer: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+    topContainer: {
+      width: Dimensions.get("screen").width,
+      backgroundColor: theme.background,
+      borderBottomRightRadius: 30,
+      borderBottomLeftRadius: 30,
+      padding: 15,
+    },
+    title: {
+      alignSelf: "center",
+      fontSize: 20,
+      fontWeight: "900",
+      color: theme.text,
+    },
+    welcomeTextContainer: {
+      paddingVertical: 10,
+    },
+    welcomeText: {
+      fontSize: 18,
+      fontWeight: "500",
+      color: theme.text,
+    },
+    subtitle: {
+      color: theme.text,
+    },
+    label: {
+      fontWeight: "500",
+      paddingVertical: 10,
+      color: theme.text,
+    },
+    inputContainer: {
+      flexDirection: "row",
+      gap: 10,
+    },
+    smallInput: {
+      height: 40,
+      width: "20%",
+      backgroundColor: "white",
+      borderRadius: 10,
+      paddingHorizontal: 10,
+    },
+    largeInput: {
+      height: 40,
+      width: "76%",
+      backgroundColor: "white",
+      borderRadius: 10,
+      paddingHorizontal: 10,
+    },
+    linkContainer: {
+      marginTop: 30,
+      marginVertical: 10,
+    },
+    button: {
+      width: "100%",
+      height: 50,
+      backgroundColor: "#1b1c1c",
+      borderRadius: 10,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    buttonText: {
+      fontWeight: "700",
+      fontSize: 16,
+      color: "white",
+      textAlign: "center",
+    },
 
-  // Bottom Section
-  bottomContainer: {
-    alignItems: "center",
-    backgroundColor: "#f2f2f2",
-  },
-  signUpContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  newUserText: {
-    color: "#b3b3b3",
-  },
-  signUpText: {
-    fontWeight: "500",
-  },
-  orContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 10,
-    paddingVertical: 20,
-  },
-  line: {
-    height: 3,
-    width: 60,
-    backgroundColor: "grey",
-    alignSelf: "center",
-  },
-  orText: {
-    fontWeight: "500",
-  },
-  googleButton: {
-    width: Dimensions.get("screen").width - 30,
-    height: 50,
-    backgroundColor: "white",
-    borderRadius: 10,
-    justifyContent: "center",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
-  },
-  googleIcon: {
-    height: 30,
-    width: 30,
-  },
-  googleText: {
-    fontWeight: "700",
-    fontSize: 16,
-    color: "grey",
-  },
-};
+    // Bottom Section
+    bottomContainer: {
+      alignItems: "center",
+      backgroundColor: theme.background,
+    },
+    signUpContainer: {
+      flexDirection: "row",
+      justifyContent: "center",
+    },
+    newUserText: {
+      color: "#b3b3b3",
+    },
+    signUpText: {
+      fontWeight: "500",
+      color: theme.text,
+    },
+    orContainer: {
+      flexDirection: "row",
+      justifyContent: "center",
+      gap: 10,
+      paddingVertical: 20,
+    },
+    line: {
+      height: 3,
+      width: 60,
+      backgroundColor: "grey",
+      alignSelf: "center",
+    },
+    orText: {
+      fontWeight: "500",
+      color: theme.text,
+    },
+    googleButton: {
+      width: Dimensions.get("screen").width - 30,
+      height: 50,
+      backgroundColor: "white",
+      borderRadius: 10,
+      justifyContent: "center",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 5,
+    },
+    googleIcon: {
+      height: 30,
+      width: 30,
+    },
+    googleText: {
+      fontWeight: "700",
+      fontSize: 16,
+      color: "grey",
+    },
+  });
