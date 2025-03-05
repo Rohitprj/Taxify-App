@@ -6,12 +6,19 @@ import Google from "../../assets/images/GoogleIcon.png";
 import { Link } from "expo-router";
 import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 import HomeScreen from "../homeScreen";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function MobileNo() {
+  const theme = useSelector((state) => state.theme.theme);
+  const dispatch = useDispatch();
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.topContainer}>
         <Text style={styles.title}>Taxify</Text>
+        <Switch
+          value={theme.mode === "dark"}
+          onValueChange={() => dispatch({ type: "TOGGLE_THEME" })}
+        />
         <View style={styles.welcomeTextContainer}>
           <Text style={styles.welcomeText}>Lets you in</Text>
           {/* <Switch value={true} onChange={() => {}} /> */}
