@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function HomeScreen() {
   const theme = useSelector((state) => state.theme.theme);
-  const dispatch = useDispatch();
 
   return (
     <View
