@@ -13,10 +13,6 @@ export default function HomeScreen() {
       }}
     >
       <Text style={{ color: theme.text }}>Current Theme: {theme.mode}</Text>
-      <Switch
-        value={theme.mode === "dark"}
-        onValueChange={() => dispatch({ type: "TOGGLE_THEME" })}
-      />
     </View>
   );
 }

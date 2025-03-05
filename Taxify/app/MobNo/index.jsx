@@ -21,7 +21,6 @@ export default function MobileNo() {
         />
         <View style={styles.welcomeTextContainer}>
           <Text style={styles.welcomeText}>Lets you in</Text>
-          {/* <Switch value={true} onChange={() => {}} /> */}
           <HomeScreen />
           <Text style={styles.subtitle}>Hey, You have been missed!</Text>
         </View>
