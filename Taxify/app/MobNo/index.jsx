@@ -17,8 +17,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function MobileNo() {
   const theme = useSelector((state) => state.theme.theme);
-  const dispatch = useDispatch();
   const styles = getStyles(theme);
+  const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={styles.safeContainer}>
