@@ -4,6 +4,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
+import Steering from "../assets/images/Steering";
 
 export default function index() {
   const { height, width } = useWindowDimensions();
@@ -13,6 +14,7 @@ export default function index() {
       <View style={[styles.header, { height: height * 0.35, width }]} />
       <View style={[styles.card, { width: width - 80, top: height * 0.7 }]}>
         <Text style={styles.title}>Taxify App</Text>
+        <Steering />
         <Text style={styles.description}>
           Welcome to Taxify App, the smartest way to book a cab! No more long
           waits and unpredictable fares.

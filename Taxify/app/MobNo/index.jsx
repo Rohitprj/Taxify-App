@@ -23,12 +23,7 @@ export default function MobileNo() {
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.topContainer}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
+        <View style={styles.header}>
           <Text style={styles.title}>Taxify</Text>
           <Switch
             value={theme.mode === "dark"}
@@ -102,6 +97,10 @@ const getStyles = (theme) =>
       borderBottomRightRadius: 30,
       borderBottomLeftRadius: 30,
       padding: 15,
+    },
+    header: {
+      flexDirection: "row",
+      justifyContent: "center",
     },
     title: {
       alignSelf: "center",
