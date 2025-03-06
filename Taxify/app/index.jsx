@@ -1,11 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
-import Index from "./index1";
+import Home from "./home";
 
 export default function index() {
   return (
     <View>
-      <Index />
+      <Home />
     </View>
   );
 }

@@ -23,14 +23,21 @@ export default function MobileNo() {
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.topContainer}>
-        <Text style={styles.title}>Taxify</Text>
-        <Switch
-          value={theme.mode === "dark"}
-          onValueChange={() => dispatch({ type: "TOGGLE_THEME" })}
-        />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={styles.title}>Taxify</Text>
+          <Switch
+            value={theme.mode === "dark"}
+            onValueChange={() => dispatch({ type: "TOGGLE_THEME" })}
+          />
+        </View>
         <View style={styles.welcomeTextContainer}>
           <Text style={styles.welcomeText}>Lets you in</Text>
-          <HomeScreen />
+          {/* <HomeScreen /> */}
           <Text style={styles.subtitle}>Hey, You have been missed!</Text>
         </View>
 
